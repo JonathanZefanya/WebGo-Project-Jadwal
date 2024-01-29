@@ -13,6 +13,7 @@ func main() {
 	http.HandleFunc("/logout", authcontroller.Login)
 	http.HandleFunc("/register", authcontroller.Register)
 	http.HandleFunc("/profile", authcontroller.Profile)
+	
 
 	fmt.Println("server started at localhost:8080")
 	http.ListenAndServe(":8080", nil)

@@ -180,6 +180,8 @@ func Profile(w http.ResponseWriter, r *http.Request) {
 	data := map[string]interface{}{
 		"nama_lengkap": session.Values["nama_lengkap"],
 		"email":        session.Values["email"],
+		"username":     session.Values["username"],
+		"profil":       true,
 	}
 	
 	temp, _ := template.ParseFiles("views/profile.html")
