@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Schedule</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+      #video {
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        overflow: hidden;
+        width: 114%;
+        height: 130%;
+        background: black no-repeat center center/cover;
+        margin:-14%;
+      }
+
+      video {
+        min-width: 100%;
+        min-height: 100vh;
+        z-index: 1;
+      }
+
+      .overlay {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(8, 27, 11, 0.3);
+        z-index: -9999;
+      }
+
+      /* Edit navbar */
+
+      .navbar {
+        padding: 24px 0px 24px 0px;
+        font-family: "Comic Sans MS", sans-serif; 
+      }
+
+      .navbar-brand {
+        font-size: 30px;
+        font-family: "Pacifico", cursive;
+        color: #fff;
+      }
+
+      .nav-link {
+        color: #fff;
+        font-weight: 300;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: #fff;
+        font-weight: 900;
+      }
+
+      @media (min-width: 992px) {
+        .navbar-expand-lg .navbar-nav .nav-link {
+          padding-right: 1.5rem;
+          padding-left: 1.5rem;
+        }
+      }
+
+      /* Edit header */
+      #header {
+        color: #fff;
+      }
+
+      #header h1 {
+        font-size: 60px;
+        font-family: "Algerian", serif;
+        line-height: 0.9;
+      }
+
+      #header p {
+        font-size: 14px;
+        font-weight: 300;
+        font-family: "Comic Sans MS", sans-serif;
+      }
+
+      #header button {
+        font-size: 16px;
+        font-weight: 700;
+        padding: 14px 32px 14px 32px;
+        border-radius: 999px;
+        background-color: #fff;
+        border-color: #fff;
+        color: #212121;
+        font-family: "Comic Sans MS", sans-serif;
+      }
+
+      @media (min-width: 720px) {
+        #header {
+          margin: 0;
+          width: 100%;
+          position: absolute;
+          top: 55%;
+          left: 50%;
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          color: #fff;
+        }
+        #header h1 {
+          font-size: 90px;
+          font-family: "Garamond", serif;
+          line-height: 0.9;
+        }
+
+        #header p {
+          font-size: 12px;
+          font-weight: 300;
+          font-family: "Comic Sans MS", sans-serif;
+        }
+      }
+      #table {
+        color: #fff;
+        font-size: 11px;
+      }
+
+      /*Jadwal*/
+      th,
+      td {
+        border: 1px solid white;
+        padding: 2px;
+        text-align: center;
+        padding-top: 1px;
+        font-family: "Comic Sans MS", sans-serif;
+      }
+
+      th {
+        background-color: rgba(0, 0, 0, 0.687);
+        border: 1px solid white;
+        width: 100px;
+        font-family: "Comic Sans MS", sans-serif;
+      }
+
+      td {
+        border: 1px solid white;
+        height: 10px;
+        padding: 2px;
+        line-height: 10px;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        font-family: "Comic Sans MS", sans-serif;
+        font-size: 15px;
+      }
+      p {
+        line-height: 0%;
+        color: orange;
+        font-size: 10px;
+        font-family: "Comic Sans MS", sans-serif;
+      }
+      #Jam {
+        background-color: black;
+        z-index: 999;
+        font-family: "Comic Sans MS", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="video">
+      <div class="overlay"></div>
+      <video src="https://motionbgs.com/dl/hd/4099" loop muted autoplay></video>
+    </section>
+    <section>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+        <div class="container">
+          <a class="navbar-brand" href="/profile" style="color: rgb(190, 190, 190);">Welcome {{ .nama_lengkap}}</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link active" aria-current="page" href="/logout">Log Out</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+    <section id="header" class="my-4">
+      <div class="container mx-auto">
+        <h1 class="text-center mb-3">
+          Jadwal<br class="d-md-block d-none" />
+          Mata Kuliah
+        </h1>
+      </div>
+
+    <center>
+      <table id="table">
+        <thead>
+          <tr id="Jam">
+            <th>Hari/Jam</th>
+            <th>08.00-09.40</th>
+            <th>08.00-10.30</th>
+            <th>09:40-12:00</th>
+            <th>12:30-14:10</th>
+            <th>13:30-15:00</th>
+            <th>13:30-16:00</th>
+            <th>15.00-17.10</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="Jam">Senin</td>
+            <td>
+              <p>Praktikum</p>
+              <p>BasisData</p>
+              <p>LIK</p>
+            </td>
+            <td></td>
+            <td>
+              <p>Kelas A</p>
+              <p>Basis Data</p>
+              <p>Ruang D2</p>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <p>Kelas A</p>
+              <p>Sistem Operasi</p>
+              <p>Ruang D7</p>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td id="Jam">Selasa</td>
+            <td><p>Kelas A</p>
+              <p>Ilmu Data</p>
+              <p>Ruang D2</p></td>
+            <td></td>
+            <td>
+              <p>Kelas B</p>
+              <p>Ilmu Data</p>
+              <p>Ruang D2</p>
+            </td>
+            <td>
+              <p>Kelas A</p>
+              <p>Pancasila</p>
+              <p>Ruang D2</p>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td id="Jam">Rabu</td>
+            <td></td>
+            <td>
+              <p>Kelas A</p>
+              <p>P.A.A</p>
+              <p>Ruang D7</p>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <p>Level 3</p>
+              <p>C.I.E</p>
+              <p>Lab Bahasa</p>
+            </td>
+            <td></td>
+            <td>
+              <p>Praktikum</p>
+              <p>Sistem Operasi</p>
+              <p>Lab Komputer</p>
+            </td>
+          </tr>
+          <tr>
+            <td id="Jam">Kamis</td>
+            <td></td>
+            <td></td>
+            <td>
+              <p>Kelas A</p>
+              <p>B.Indonesia</p>
+              <p>Ruang E10</p>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <p>Kelas A</p>
+              <p>P.D 2</p>
+              <p>Ruangan D7</p>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td id="Jam">Jumat</td>
+            <td>
+              <p>Level 2</p>
+              <p>C.I.E</p>
+              <p>Lab Bahasa</p>
+            </td>
+            <td>
+              <p>Praktikum</p>
+              <p>P.B.W</p>
+              <p>Lab Komputer</p>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+              <p>Kelas B</p>
+              <p>P.B.W</p>
+              <p>Aula G-C</p>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  </body>
+</html>
