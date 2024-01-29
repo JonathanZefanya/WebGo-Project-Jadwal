@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	authcontroller "github.com/LutfiEkaprima/Goproject/controllers"
-	profilecontroller "github.com/LutfiEkaprima/Goproject/controllers"
 )
 
 func main() {
