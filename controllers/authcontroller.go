@@ -187,3 +187,18 @@ func Profile(w http.ResponseWriter, r *http.Request) {
 	temp, _ := template.ParseFiles("views/profile.html")
 	temp.Execute(w, data)
 }
+
+func UTSpage(w http.ResponseWriter, r *http.Request) {
+	
+	session, _ := config.Store.Get(r, config.SESSION_ID)
+
+	data := map[string]interface{}{
+		"nama_lengkap": session.Values["nama_lengkap"],
+		"email":        session.Values["email"],
+		"username":     session.Values["username"],
+		"profil":       true,
+	}
+	
+	temp, _ := template.ParseFiles("views/uts.html")
+	temp.Execute(w, data)
+}
