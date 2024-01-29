@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>CodingAyush - Profile Card UI</title>
+  <title>Profile Card UI</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
   <style>
     @import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500|Jost:400,500,600&display=swap");
@@ -14,12 +14,14 @@
     body {
     color: #2b2c48;
     font-family: "Jost", sans-serif;
-    background: #11131e;
+    background: linear-gradient(-135deg, #464e7e9e 5%, #11131e94 80%), url("https://wallpapercave.com/wp/wp11721807.jpg");
+    background-size: cover;
     min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
     }
+
 
     .card {
     max-width: 340px;
@@ -401,26 +403,26 @@
           <div class="card-timeline">
             <div class="card-item" data-year="2022">
               <div class="card-item-title">
-                IPS: <span>3.86</span>
+                Semester <span>1</span>
               </div>
               <div class="card-item-desc">
-                IPK: 3.86
+                KRS: 19 SKS
               </div>
             </div>
             <div class="card-item" data-year="2023">
               <div class="card-item-title">
-                IPS: <span>4.00</span>
+                Semester <span>2</span>
               </div>
               <div class="card-item-desc">
-                IPK: 3.94
+                KRS: 20 SKS
               </div>
             </div>
             <div class="card-item" data-year="2024">
               <div class="card-item-title">
-                IPS: <span>4.00</span>
+                Semester <span>3</span>
               </div>
               <div class="card-item-desc">
-                IPK: 3.98
+                KRS: 20SKS
               </div>
             </div>
             <div class="card-item" data-year="Notes">
@@ -459,7 +461,7 @@
               </svg>
               {{.email}}
             </div>
-            <a href="/index"><button class="contact-me">JADWAL MATKUL</button></a>
+            <a href="/"><button class="contact-me">JADWAL MATKUL</button></a>
           </div>
         </div>
       </div>
