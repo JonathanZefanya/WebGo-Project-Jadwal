@@ -1,14 +1,12 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
 	"encoding/json"
+	"fmt"
 	"html/template"
+	"net/http"
 	"os"
 	"strings"
-
-	authcontroller "github.com/LutfiEkaprima/Goproject/controllers"
 )
 
 //Data struct to pass API key to it
@@ -92,20 +90,20 @@ func weatherDataHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-
+//Call handlers
 func main() {
-	http.HandleFunc("/login", authcontroller.Login)
-	http.HandleFunc("/logout", authcontroller.Login)
-	http.HandleFunc("/register", authcontroller.Register)
-	http.HandleFunc("/", authcontroller.Index)
-	http.HandleFunc("/profile", authcontroller.Profile)
-	http.HandleFunc("/uts", authcontroller.UTSpage)
 	//Responds to the "/test" command and calls the test function
 	http.HandleFunc("/test", test)
+
 	//Responds to the command "/weather/" and calls the weatherDataHandler function
 	http.HandleFunc("/weather/", weatherDataHandler)
 
-	fmt.Println("server started at localhost:8080")
-	http.ListenAndServe(":8080", nil)
-
+	/*
+		This function listens on a TCP network address,
+		accepts incoming HTTP connections,
+		and creates a separate goroutine for each connection
+	*/
+	port := ":8080"
+	fmt.Print("Server listen on port", port, "\n")
+	http.ListenAndServe(port, nil)
 }
