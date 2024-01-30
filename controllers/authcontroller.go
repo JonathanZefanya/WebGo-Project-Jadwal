@@ -181,6 +181,7 @@ func Profile(w http.ResponseWriter, r *http.Request) {
 		"nama_lengkap": session.Values["nama_lengkap"],
 		"email":        session.Values["email"],
 		"username":     session.Values["username"],
+		"password":     session.Values["password"],
 		"profil":       true,
 	}
 	

@@ -375,6 +375,10 @@
     font-family: "Jost", sans-serif;
     transition: 0.3s;
     }
+
+    .card-slider {
+      display: none;
+    }
   </style>
 </head>
 
@@ -395,6 +399,7 @@
           <p class="card-desc">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ab similique ipsam omnis dolores porro ex inventore asperiores atque, suscipit eum. Cum illo dicta, officia odit quasi itaque? Debitis, doloribus?
           </p>
+          <a href="/"><button class="contact-me">JADWAL MATKUL</button></a>
         </div>
       </div>
       <div class="card-section" id="experience">
@@ -452,7 +457,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-person" viewBox="0 0 16 16">
                 <path d="M8 0a4 4 0 0 1 4 4c0 2.21-1.79 4-4 4a4 4 0 0 1-4-4C4 1.79 5.79 0 8 0zm0 1.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm0 11a5.978 5.978 0 0 1-5-2.744c.198-.372.45-.728.737-1.058C4.03 7.804 5.518 7 8 7s3.97.804 5.263 2.198c.287.33.539.686.737 1.058A5.978 5.978 0 0 1 8 12.5z"/>
               </svg>{{.username}}
-            </div>
+            </div>    
             <div class="card-contact">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -461,7 +466,7 @@
               </svg>
               {{.email}}
             </div>
-            <a href="/"><button class="contact-me">JADWAL MATKUL</button></a>
+            <a href="/logout"><button class="contact-me">LOGOUT</button></a>
           </div>
         </div>
       </div>

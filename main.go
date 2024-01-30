@@ -8,13 +8,12 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", authcontroller.Index)
 	http.HandleFunc("/login", authcontroller.Login)
 	http.HandleFunc("/logout", authcontroller.Login)
 	http.HandleFunc("/register", authcontroller.Register)
+	http.HandleFunc("/", authcontroller.Index)
 	http.HandleFunc("/profile", authcontroller.Profile)
 	http.HandleFunc("/uts", authcontroller.UTSpage)
-
 	fmt.Println("server started at localhost:8080")
 	http.ListenAndServe(":8080", nil)
 
